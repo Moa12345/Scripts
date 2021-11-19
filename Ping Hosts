@@ -1,0 +1,12 @@
+  ## Ping Check bash script ##
+    #Ips range is 1 to 150 , you can change it as you like 
+    #bytes if the host live will equal 2 , not live will equal 1 
+    for i in {1..150}; 
+    bytes=`ping 192.168.216.$i -c 1 | grep bytes | wc -l`  
+    if [ $bytes -gt 1 ];
+    then
+        echo "team$i is live "  
+    else
+        echo "team$i not live " 
+    fi
+    done;
